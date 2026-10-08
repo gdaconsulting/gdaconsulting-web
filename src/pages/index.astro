@@ -15,7 +15,24 @@ const services = [
   <body>
     <div class="orb orb-one"></div><div class="orb orb-two"></div>
     <header>
-      <a class="brand" href="/" aria-label="GDA Consulting home"><span class="brand-mark">G</span><span>GDA<span class="muted"> Consulting</span></span></a>
+      <a class="brand" href="/" aria-label="GDA Consulting home"><span class="brand-mark" aria-hidden="true">
+  <svg viewBox="0 0 100 100" role="img">
+    <defs>
+      <linearGradient id="ribbon-gradient" x1="14" y1="80" x2="88" y2="14" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#6b5cff" />
+        <stop offset=".48" stop-color="#8f83ff" />
+        <stop offset="1" stop-color="#64e7dd" />
+      </linearGradient>
+      <linearGradient id="ribbon-highlight" x1="18" y1="20" x2="84" y2="84" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#64e7dd" />
+        <stop offset="1" stop-color="#8f83ff" />
+      </linearGradient>
+    </defs>
+    <path d="M82 21C69 11 48 9 31 17 12 26 8 48 18 66c11 20 37 27 58 17 12-6 19-16 21-29H61" fill="none" stroke="url(#ribbon-gradient)" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M82 21 58 36" fill="none" stroke="url(#ribbon-highlight)" stroke-width="13" stroke-linecap="round" />
+    <path d="M77 77 52 61" fill="none" stroke="#dfe3ff" stroke-opacity=".86" stroke-width="11" stroke-linecap="round" />
+  </svg>
+</span><span>GDA<span class="muted"> Consulting</span></span></a>
       <a class="nav-link" href="mailto:info@gdaconsulting.com.ar">Let’s talk <span>↗</span></a>
     </header>
     <main>
@@ -50,5 +67,13 @@ const services = [
   .signal-row { border-top:1px solid rgba(255,255,255,.13); border-bottom:1px solid rgba(255,255,255,.13); display:grid; grid-template-columns:repeat(3,1fr); padding:22px 0; } .signal-row div { display:flex; gap:18px; align-items:center; padding-left:20px; border-left:1px solid rgba(255,255,255,.13); } .signal-row div:first-child { border-left:0; padding-left:0; } .signal-row strong { color:#8f83ff; font-size:.72rem; } .signal-row span { color:#ccd0e2; font-size:.8rem; }
   .services { padding:130px 0 120px; } .section-heading { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:end; margin-bottom:58px; } h2 { font-size:clamp(3rem,6vw,5.9rem); line-height:.9; letter-spacing:-.08em; margin:0; } .section-intro { color:#8e95ae; line-height:1.6; max-width:390px; margin:0 0 5px; } .service-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; } .service-grid article { min-height:280px; padding:22px; border:1px solid rgba(255,255,255,.12); border-radius:12px; background:linear-gradient(145deg,rgba(255,255,255,.065),rgba(255,255,255,.015)); transition:transform .25s,border-color .25s; } .service-grid article:hover { transform:translateY(-7px); border-color:rgba(143,131,255,.8); } .service-top { display:flex; justify-content:space-between; color:#8f83ff; font-size:.75rem; } .arrow { color:#64e7dd; } h3 { font-size:1.65rem; line-height:1.05; letter-spacing:-.05em; margin:72px 0 18px; max-width:240px; } .service-grid p { color:#8e95ae; line-height:1.55; font-size:.9rem; max-width:280px; }
   .contact-panel { border:1px solid rgba(143,131,255,.35); border-radius:14px; padding:54px; display:grid; grid-template-columns:1fr 1fr; gap:30px; background:radial-gradient(circle at 80% 20%,rgba(143,131,255,.18),transparent 45%),rgba(255,255,255,.035); } .contact-details { display:flex; flex-direction:column; justify-content:center; gap:15px; } .contact-details a { color:#dce0f0; text-decoration:none; font-size:.95rem; } footer { display:flex; justify-content:space-between; color:#737b99; font-size:.7rem; padding-top:25px; padding-bottom:30px; }
-  @media (max-width:800px) { header,main,footer { padding-left:20px; padding-right:20px; } .hero { grid-template-columns:1fr; padding-top:55px; } .hero-visual { min-height:330px; margin-top:-25px; } .signal-row { grid-template-columns:1fr; gap:15px; } .signal-row div { border-left:0; padding-left:0; } .section-heading,.contact-panel { grid-template-columns:1fr; } .services { padding:90px 0; } .service-grid { grid-template-columns:1fr; } .service-grid article { min-height:230px; } h3 { margin-top:55px; } .contact-panel { padding:32px 24px; } footer { flex-direction:column; gap:10px; } }
+  @media (max-width:800px) { header,main,footer { padding-left:20px; padding-right:20px; } .hero { grid-template-columns:1fr; padding-top:55px; } .hero-visual { min-height:330px; margin-top:-25px; } .signal-row { grid-template-columns:1fr; gap:15px; } .signal-row div { border-left:0; padding-left:0; } .section-heading,.contact-panel { grid-template-columns:1fr; } .services { padding:90px 0; } .service-grid { grid-template-columns:1fr; } .service-grid article { min-height:230px; } h3 { margin-top:55px; } .contact-panel { padding:32px 24px; } footer { flex-direction:column; gap:10px; } }.brand-mark { display:block; width:34px; height:34px; flex:0 0 34px; border:0; border-radius:0; }
+  .brand-mark svg { display:block; width:100%; height:100%; overflow:visible; filter:drop-shadow(0 0 10px rgba(143,131,255,.25)); }.hero-visual::before { content:''; position:absolute; width:12px; height:12px; border-radius:50%; background:#64e7dd; box-shadow:0 0 18px #64e7dd, 0 0 48px rgba(100,231,221,.72); top:50%; left:50%; transform:translate(-50%,-50%) rotate(0deg) translateX(166px); animation:signal-orbit 8s linear infinite; z-index:2; }
+  .ring-a { animation:ring-drift 9s ease-in-out infinite; }
+  .ring-b { animation:ring-drift 7s ease-in-out -2s infinite reverse; }
+  .core { animation:core-float 5s ease-in-out infinite; }
+  @keyframes signal-orbit { from { transform:translate(-50%,-50%) rotate(0deg) translateX(166px); } to { transform:translate(-50%,-50%) rotate(360deg) translateX(166px); } }
+  @keyframes ring-drift { 0%,100% { opacity:.72; } 50% { opacity:1; filter:drop-shadow(0 0 16px rgba(100,231,221,.28)); } }
+  @keyframes core-float { 0%,100% { transform:rotate(-8deg) translateY(0); } 50% { transform:rotate(-5deg) translateY(-8px); } }
+  @media (prefers-reduced-motion: reduce) { .hero-visual::before, .ring-a, .ring-b, .core { animation:none; } }
 </style>
