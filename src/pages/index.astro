@@ -37,13 +37,14 @@ const principles = [
       <nav aria-label="Primary"><a class="nav-link" href="#services">Capabilities</a><a class="nav-link" href="#approach">Approach</a><a class="nav-link nav-cta" href="mailto:info@gdaconsulting.com.ar">Let’s talk <span>↗</span></a></nav>
     </header>
     <main>
-      <section class="hero">
+      <section class="hero-carousel" aria-label="GDA Consulting highlights" data-carousel>
+        <div class="hero-slide slide-strategy is-active" role="group" aria-roledescription="slide" aria-label="1 of 3: Turn complexity into momentum" data-slide>
+        <div class="hero">
         <div class="hero-copy">
           <p class="eyebrow"><span class="pulse"></span> Strategy · Systems · Intelligence</p>
           <h1>Turn complexity<br /><span>into momentum.</span></h1>
           <p class="lead">GDA Consulting helps ambitious teams connect business intent with technology that moves the work forward.</p>
           <div class="actions"><a class="button" href="mailto:info@gdaconsulting.com.ar">Start a conversation <span>↗</span></a><a class="text-link" href="#services">Explore capabilities <span>↓</span></a></div>
-          <div class="hero-note"><span class="note-line"></span><span>A global perspective for teams navigating what’s next.</span></div>
         </div>
         <div class="hero-visual" aria-hidden="true">
           <div class="visual-glow"></div>
@@ -80,15 +81,45 @@ const principles = [
           <div class="visual-label label-top"><span class="label-dot"></span>GLOBAL / SIGNAL</div>
           <div class="visual-label label-bottom">SYSTEMS THAT MOVE <span>↗</span></div>
         </div>
-      </section>
-      <section class="signal-row"><div><strong>01</strong><span>Strategic clarity</span></div><div><strong>02</strong><span>Technical depth</span></div><div><strong>03</strong><span>Global reach</span></div></section>
-      <section class="global-feature" aria-labelledby="global-heading">
-        <div class="global-feature-content">
+        </div>
+        </div>
+        <div class="hero-slide slide-global" role="group" aria-roledescription="slide" aria-label="2 of 3: Insight without borders" aria-hidden="true" inert data-slide>
+          <div class="slide-global-image" aria-hidden="true"></div>
+          <div class="slide-global-shade" aria-hidden="true"></div>
+          <div class="slide-copy">
           <p class="eyebrow">Connected thinking</p>
           <h2 id="global-heading">Insight without<br /><span>borders.</span></h2>
           <p>Wherever the challenge starts, we connect the signals, systems and people that can move it forward.</p>
+          <a class="button" href="mailto:info@gdaconsulting.com.ar">Start a conversation <span>↗</span></a>
+          </div>
+          <span class="slide-side-note">GLOBAL PERSPECTIVE / REAL-WORLD IMPACT</span>
+        </div>
+        <div class="hero-slide slide-impact" role="group" aria-roledescription="slide" aria-label="3 of 3: From signal to impact" aria-hidden="true" inert data-slide>
+          <div class="slide-copy">
+            <p class="eyebrow">The GDA approach</p>
+            <h2>From signal<br /><span>to impact.</span></h2>
+            <p>Strategy matters when it changes how work gets done. We connect ideas, technology and adoption into forward motion.</p>
+            <a class="button" href="#approach">See our approach <span>↗</span></a>
+          </div>
+          <div class="impact-visual" aria-hidden="true">
+            <div class="impact-halo"></div>
+            <div class="impact-connector"></div>
+            <div class="impact-card impact-card-one"><span>01 / DISCOVER</span><div class="signal-bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><strong>Find the signal</strong></div>
+            <div class="impact-card impact-card-two"><span>02 / DESIGN</span><div class="impact-map"><i></i><i></i><i></i><i></i><i></i></div><strong>Shape the system</strong></div>
+            <div class="impact-card impact-card-three"><span>03 / DELIVER</span><div class="impact-line"><i></i><i></i><i></i><i></i></div><strong>Build momentum</strong></div>
+          </div>
+          <span class="slide-side-note">THINK CLEARLY / MOVE DECISIVELY</span>
+        </div>
+        <div class="carousel-controls" aria-label="Carousel controls">
+          <div class="slide-tabs">
+            <button class="slide-tab is-active" type="button" data-slide-to="0" aria-label="Show slide 1: Turn complexity into momentum" aria-pressed="true"><span>01</span> Strategy</button>
+            <button class="slide-tab" type="button" data-slide-to="1" aria-label="Show slide 2: Insight without borders" aria-pressed="false"><span>02</span> Global</button>
+            <button class="slide-tab" type="button" data-slide-to="2" aria-label="Show slide 3: From signal to impact" aria-pressed="false"><span>03</span> Impact</button>
+          </div>
+          <div class="slide-arrows"><button type="button" data-slide-pause aria-label="Pause automatic slideshow" aria-pressed="false">Ⅱ</button><button type="button" data-slide-prev aria-label="Previous slide">←</button><button type="button" data-slide-next aria-label="Next slide">→</button></div>
         </div>
       </section>
+      <section class="signal-row"><div><strong>01</strong><span>Strategic clarity</span></div><div><strong>02</strong><span>Technical depth</span></div><div><strong>03</strong><span>Global reach</span></div></section>
       <section class="services" id="services">
         <div class="section-heading"><div><p class="eyebrow">Capabilities</p><h2>Where strategy<br /><span>gets real.</span></h2></div><p class="section-intro">From legal operations to data and AI, we bring the right level of clarity, technology and momentum to the problem in front of you.</p></div>
         <div class="service-grid">{services.map((service) => <article><div class="service-top"><span>{service.number}</span><span class="arrow">↗</span></div><h3>{service.title}</h3><p>{service.text}</p><a href="mailto:info@gdaconsulting.com.ar">Explore the conversation <span>↗</span></a></article>)}</div>
@@ -109,18 +140,159 @@ const principles = [
   .hero { min-height:670px; display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:22px; padding-top:70px; padding-bottom:74px; position:relative; } .hero-copy { position:relative; z-index:2; } .eyebrow { color:#72d9ee; text-transform:uppercase; letter-spacing:.2em; font-size:.66rem; font-weight:700; margin:0 0 25px; } .pulse { display:inline-block; width:7px; height:7px; margin-right:10px; border-radius:50%; background:#72f1e2; box-shadow:0 0 15px #72f1e2; } h1 { font-size:clamp(3.8rem,7.3vw,7.3rem); line-height:.88; letter-spacing:-.09em; margin:0 0 30px; max-width:720px; } h1 span,h2 span { color:#55c7ff; } .lead { color:#b6c9dd; font-size:1.13rem; line-height:1.6; max-width:510px; margin:0 0 34px; } .actions { display:flex; align-items:center; gap:26px; flex-wrap:wrap; } .button { display:inline-flex; align-items:center; background:#f4fbff; color:#071a35; padding:16px 21px; text-decoration:none; border-radius:7px; font-size:.78rem; font-weight:700; box-shadow:0 0 38px rgba(78,205,255,.22); } .text-link { color:#c0d3e7; text-decoration:none; font-size:.79rem; } .hero-note { display:flex; align-items:center; gap:12px; color:#7f9ab7; font-size:.72rem; margin-top:54px; letter-spacing:.02em; } .note-line { width:32px; height:1px; background:#47c9e7; box-shadow:0 0 10px #47c9e7; }
   .hero-visual { min-height:525px; position:relative; display:grid; place-items:center; isolation:isolate; } .visual-glow { position:absolute; width:390px; height:390px; border-radius:50%; background:radial-gradient(circle,rgba(34,178,255,.3),transparent 66%); filter:blur(10px); } .network-art { width:100%; max-width:620px; overflow:visible; position:relative; z-index:1; } .planet { stroke:#55dfff; stroke-opacity:.5; stroke-width:1; filter:drop-shadow(0 0 28px rgba(49,191,255,.6)); } .orbit { fill:none; stroke:#5ad8ff; stroke-width:1.1; stroke-opacity:.52; transform-origin:360px 294px; } .orbit-one { animation:orbit-spin 18s linear infinite; } .orbit-two { animation:orbit-spin 24s linear -7s infinite reverse; } .orbit-three { animation:orbit-spin 30s linear -12s infinite; } .network-lines path { fill:none; stroke:#84eaff; stroke-opacity:.3; stroke-width:1; stroke-dasharray:5 10; animation:network-flow 8s linear infinite; } .network-lines path:nth-child(2n) { animation-duration:11s; animation-direction:reverse; } .data-trails path { stroke-width:2; stroke-dasharray:10 15; animation:trail-flow 6s linear infinite; } .data-trails path:nth-child(2) { animation-delay:-3s; animation-duration:8s; } .nodes circle { fill:#e7fdff; animation:node-pulse 3s ease-in-out infinite; } .nodes circle:nth-child(2n) { animation-delay:-1.2s; } .signal-node { fill:#7dffe5; animation:signal-pulse 2.5s ease-in-out infinite; } .visual-label { position:absolute; color:#a8c5df; font-size:.58rem; letter-spacing:.18em; z-index:2; } .label-top { top:56px; right:8%; } .label-bottom { bottom:62px; left:5%; } .visual-label span { color:#73f0df; } .label-dot { display:inline-block; width:6px; height:6px; border-radius:50%; background:#73f0df; box-shadow:0 0 12px #73f0df; margin-right:9px; }
   .signal-row { border-top:1px solid rgba(179,226,255,.2); border-bottom:1px solid rgba(179,226,255,.2); display:grid; grid-template-columns:repeat(3,1fr); padding:22px 0; } .signal-row div { display:flex; gap:18px; align-items:center; padding-left:20px; border-left:1px solid rgba(179,226,255,.2); } .signal-row div:first-child { border-left:0; padding-left:0; } .signal-row strong { color:#62d6fa; font-size:.72rem; } .signal-row span { color:#d5e4f2; font-size:.8rem; }
-  .global-feature { min-height:475px; margin-top:98px; border:1px solid rgba(120,218,255,.25); border-radius:16px; overflow:hidden; display:flex; align-items:center; position:relative; background:#073477 url('/hero-network.png') center center / cover no-repeat; box-shadow:0 30px 95px rgba(0,77,178,.18); }
-  .global-feature::before { content:''; position:absolute; inset:0; background:linear-gradient(90deg,rgba(3,20,48,.9),rgba(3,20,48,.56) 39%,rgba(3,20,48,.04) 75%); }
-  .global-feature::after { content:''; position:absolute; inset:-20%; pointer-events:none; background:linear-gradient(110deg,transparent 44%,rgba(147,223,255,.13) 50%,transparent 56%); animation:feature-sweep 9s ease-in-out infinite; }
-  .global-feature-content { position:relative; z-index:1; padding:55px; max-width:610px; }
-  .global-feature h2 { font-size:clamp(2.9rem,5.5vw,5.5rem); }
-  .global-feature h2 span { color:#80e8ff; }
-  .global-feature-content > p:last-child { max-width:410px; color:#dcecff; font-size:1rem; line-height:1.65; margin:25px 0 0; }
+  .hero-carousel { height:720px; position:relative; isolation:isolate; overflow:hidden; border-bottom:1px solid rgba(179,226,255,.2); touch-action:pan-y; }
+  .hero-slide { position:absolute; inset:0; opacity:0; visibility:hidden; pointer-events:none; transform:translateX(35px) scale(.985); transition:opacity .8s ease,transform .8s ease,visibility 0s linear .8s; }
+  .hero-slide.is-active { opacity:1; visibility:visible; pointer-events:auto; transform:none; transition:opacity .8s ease,transform .8s ease; z-index:2; }
+  .slide-strategy .hero { min-height:100%; padding-top:30px; padding-bottom:120px; }
+  .slide-global,.slide-impact { display:flex; align-items:center; border-radius:18px; overflow:hidden; }
+  .slide-global { background:#0754ae; }
+  .slide-global-image { position:absolute; inset:0; background:url('/hero-network.png') center center / cover no-repeat; transform:scale(1.08); transition:transform 8s ease-out; }
+  .slide-global.is-active .slide-global-image { transform:scale(1); }
+  .slide-global-shade { position:absolute; inset:0; background:linear-gradient(90deg,rgba(3,20,48,.95),rgba(3,20,48,.72) 39%,rgba(3,20,48,.05) 78%),linear-gradient(0deg,rgba(3,20,48,.4),transparent 30%); }
+  .slide-copy { width:min(610px,58%); position:relative; z-index:2; padding:0 0 80px 50px; }
+  .slide-copy h2 { font-size:clamp(3.9rem,6.7vw,7rem); margin-bottom:28px; }
+  .slide-copy h2 span { color:#6fdfff; }
+  .slide-copy > p:not(.eyebrow) { max-width:480px; color:#d9e9f7; font-size:1.08rem; line-height:1.65; margin:0 0 32px; }
+  .slide-impact .slide-copy { width:55%; }
+  .slide-impact .slide-copy h2 { font-size:clamp(3.6rem,5.9vw,6rem); }
+  .slide-side-note { position:absolute; z-index:2; right:32px; bottom:128px; color:#c9e9fa; letter-spacing:.2em; font-size:.6rem; }
+  .slide-impact { background:radial-gradient(circle at 75% 45%,#1158ac 0%,#07366f 35%,#061e40 71%); }
+  .slide-impact::before { content:''; position:absolute; inset:0; opacity:.18; background-image:linear-gradient(rgba(159,225,255,.2) 1px,transparent 1px),linear-gradient(90deg,rgba(159,225,255,.2) 1px,transparent 1px); background-size:55px 55px; mask-image:linear-gradient(90deg,transparent 18%,black); }
+  .impact-visual { position:absolute; width:45%; height:560px; right:10px; top:25px; perspective:800px; }
+  .impact-halo { position:absolute; width:410px; height:410px; top:72px; left:60px; border-radius:50%; border:1px solid rgba(112,227,255,.35); box-shadow:0 0 0 65px rgba(107,217,255,.035),0 0 85px rgba(91,195,255,.24),inset 0 0 75px rgba(28,176,255,.12); animation:halo-breathe 6s ease-in-out infinite; }
+  .impact-connector { position:absolute; width:2px; height:430px; left:48%; top:75px; transform:rotate(-27deg); background:linear-gradient(transparent,#7eeaff,transparent); box-shadow:0 0 17px #64dfff; opacity:.7; }
+  .impact-card { position:absolute; min-height:146px; padding:23px 25px; border:1px solid rgba(139,225,255,.48); border-radius:13px; background:linear-gradient(145deg,rgba(19,87,155,.76),rgba(10,37,81,.9)); box-shadow:0 24px 45px rgba(1,13,41,.5),inset 0 1px 0 rgba(233,250,255,.2); backdrop-filter:blur(14px); display:flex; flex-direction:column; justify-content:space-between; }
+  .impact-card span { color:#7de4f4; font-size:.61rem; font-weight:700; letter-spacing:.18em; }
+  .impact-card strong { color:#f5fbff; font-size:1.16rem; letter-spacing:-.03em; }
+  .impact-card-one { top:10%; left:1%; width:66%; transform:rotate(-5deg); animation:float-one 6s ease-in-out infinite; }
+  .impact-card-two { top:36%; right:1%; width:64%; transform:rotate(4deg); animation:float-two 7s ease-in-out infinite; }
+  .impact-card-three { bottom:6%; left:10%; width:68%; transform:rotate(-3deg); animation:float-three 6.5s ease-in-out infinite; }
+  .signal-bars { display:flex; align-items:end; gap:7px; height:38px; }
+  .signal-bars i { display:block; width:15px; height:30%; border-radius:3px 3px 0 0; background:linear-gradient(#8af9f1,#43a5ef); box-shadow:0 0 10px rgba(96,230,251,.45); transform-origin:bottom; animation:bar-rise 2.4s ease-in-out infinite alternate; }
+  .signal-bars i:nth-child(2) { height:70%; animation-delay:-.5s; }.signal-bars i:nth-child(3) { height:45%; animation-delay:-1.1s; }.signal-bars i:nth-child(4) { height:90%; animation-delay:-1.7s; }.signal-bars i:nth-child(5) { height:55%; animation-delay:-.8s; }.signal-bars i:nth-child(6) { height:76%; animation-delay:-1.4s; }.signal-bars i:nth-child(7) { height:40%; animation-delay:-.3s; }
+  .impact-map { height:34px; display:flex; justify-content:space-between; align-items:center; position:relative; }
+  .impact-map::before { content:''; position:absolute; left:0; right:0; top:50%; height:1px; background:#68dfff; box-shadow:0 0 12px #68dfff; }
+  .impact-map i,.impact-line i { position:relative; display:block; width:10px; height:10px; border-radius:50%; background:#c3fffb; box-shadow:0 0 12px #73f0ed; }
+  .impact-map i:nth-child(2n) { width:6px; height:6px; }
+  .impact-line { height:36px; display:flex; justify-content:space-between; align-items:center; border-bottom:2px solid rgba(128,232,255,.55); transform:skewY(-5deg); }
+  .carousel-controls { position:absolute; z-index:5; bottom:24px; left:0; right:0; display:flex; align-items:end; gap:32px; padding:0 22px; }
+  .slide-tabs { display:flex; flex:1; gap:20px; }
+  .slide-tab { position:relative; width:160px; padding:13px 0 0; border:0; border-top:1px solid rgba(205,240,255,.38); background:none; text-align:left; color:#b4c9dd; font-size:.77rem; cursor:pointer; }
+  .slide-tab::before { content:''; position:absolute; left:0; top:-2px; height:3px; width:0; background:#74edee; box-shadow:0 0 12px #55dcf0; transition:width .45s ease; }
+  .slide-tab.is-active { color:#fff; }.slide-tab.is-active::before { width:100%; }.slide-tab span { margin-right:10px; color:#72d9ee; font-size:.65rem; }
+  .slide-arrows { display:flex; gap:10px; }.slide-arrows button { width:40px; height:40px; border-radius:50%; border:1px solid rgba(186,232,255,.55); background:rgba(9,46,91,.55); color:#effaff; font-size:1.15rem; cursor:pointer; transition:background .2s,transform .2s; }.slide-arrows button:hover { background:#1572bb; transform:translateY(-2px); }
+  .carousel-controls button:focus-visible { outline:2px solid #91fff1; outline-offset:4px; }
   .services,.approach { padding:130px 0 120px; } .approach { padding-top:0; } .section-heading { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:end; margin-bottom:58px; } .approach-heading { margin-bottom:44px; } h2 { font-size:clamp(3rem,5.9vw,5.8rem); line-height:.9; letter-spacing:-.08em; margin:0; } .section-intro { color:#9fb6ce; line-height:1.65; max-width:420px; margin:0 0 5px; } .service-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; } .service-grid article { min-height:310px; padding:24px; border:1px solid rgba(179,226,255,.18); border-radius:14px; background:linear-gradient(145deg,rgba(75,180,255,.12),rgba(255,255,255,.025)); transition:transform .3s,border-color .3s,background .3s; } .service-grid article:hover { transform:translateY(-8px); border-color:rgba(104,233,238,.75); background:linear-gradient(145deg,rgba(75,180,255,.2),rgba(255,255,255,.04)); } .service-top { display:flex; justify-content:space-between; color:#6ddaf9; font-size:.75rem; } h3 { font-size:1.6rem; line-height:1.05; letter-spacing:-.05em; margin:72px 0 16px; max-width:250px; } .service-grid p,.principle-grid p { color:#a1b8cf; line-height:1.6; font-size:.88rem; max-width:285px; } .service-grid article a { display:inline-block; color:#dcecf8; text-decoration:none; font-size:.72rem; letter-spacing:.04em; margin-top:18px; }
   .principle-grid { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgba(179,226,255,.18); border-bottom:1px solid rgba(179,226,255,.18); } .principle-grid article { min-height:230px; padding:25px 25px 28px 0; border-right:1px solid rgba(179,226,255,.18); } .principle-grid article:not(:first-child) { padding-left:25px; } .principle-grid article:last-child { border-right:0; } .principle-number { color:#69dff5; font-size:.7rem; } .principle-grid h3 { margin:55px 0 15px; font-size:1.45rem; }
   .contact-panel { border:1px solid rgba(91,218,238,.42); border-radius:16px; padding:56px; display:grid; grid-template-columns:1fr 1fr; gap:30px; background:radial-gradient(circle at 82% 15%,rgba(26,153,255,.2),transparent 48%),linear-gradient(145deg,rgba(77,170,255,.1),rgba(255,255,255,.025)); } .contact-details { display:flex; flex-direction:column; justify-content:center; gap:13px; } .contact-details p { color:#b3c9dd; line-height:1.5; margin:0 0 9px; max-width:330px; } .contact-details a { color:#dcecf8; text-decoration:none; font-size:.94rem; } .contact-email { color:#7ce7f0 !important; } footer { display:flex; justify-content:space-between; color:#7894b2; font-size:.7rem; padding-top:25px; padding-bottom:30px; }
-  @keyframes orbit-spin { from { transform:rotate(0deg); } to { transform:rotate(360deg); } } @keyframes network-flow { from { stroke-dashoffset:0; } to { stroke-dashoffset:-90; } } @keyframes trail-flow { from { stroke-dashoffset:0; } to { stroke-dashoffset:-150; } } @keyframes node-pulse { 0%,100% { opacity:.55; transform:scale(.85); transform-origin:center; } 50% { opacity:1; transform:scale(1.45); transform-origin:center; } } @keyframes signal-pulse { 0%,100% { opacity:.5; transform:scale(.8); transform-origin:center; } 50% { opacity:1; transform:scale(1.6); transform-origin:center; } } @keyframes feature-sweep { 0%,28% { transform:translateX(-55%); opacity:0; } 43% { opacity:1; } 68%,100% { transform:translateX(55%); opacity:0; } }
-  @media (prefers-reduced-motion:reduce) { .orbit,.network-lines path,.data-trails path,.nodes circle,.signal-node,.global-feature::after { animation:none; } }
+  @keyframes orbit-spin { from { transform:rotate(0deg); } to { transform:rotate(360deg); } } @keyframes network-flow { from { stroke-dashoffset:0; } to { stroke-dashoffset:-90; } } @keyframes trail-flow { from { stroke-dashoffset:0; } to { stroke-dashoffset:-150; } } @keyframes node-pulse { 0%,100% { opacity:.55; transform:scale(.85); transform-origin:center; } 50% { opacity:1; transform:scale(1.45); transform-origin:center; } } @keyframes signal-pulse { 0%,100% { opacity:.5; transform:scale(.8); transform-origin:center; } 50% { opacity:1; transform:scale(1.6); transform-origin:center; } }
+  @keyframes halo-breathe { 0%,100% { transform:scale(.96); opacity:.55; } 50% { transform:scale(1.04); opacity:1; } }
+  @keyframes float-one { 0%,100% { transform:translateY(0) rotate(-5deg); } 50% { transform:translateY(-12px) rotate(-3deg); } }
+  @keyframes float-two { 0%,100% { transform:translateY(0) rotate(4deg); } 50% { transform:translateY(12px) rotate(2deg); } }
+  @keyframes float-three { 0%,100% { transform:translateY(0) rotate(-3deg); } 50% { transform:translateY(-10px) rotate(-1deg); } }
+  @keyframes bar-rise { 0% { transform:scaleY(.45); } 100% { transform:scaleY(1.18); } }
+  @media (prefers-reduced-motion:reduce) { .hero-slide,.slide-global-image { transition:none; } .orbit,.network-lines path,.data-trails path,.nodes circle,.signal-node,.impact-halo,.impact-card,.signal-bars i { animation:none; } }
   @media (max-width:800px) { header,main,footer { padding-left:20px; padding-right:20px; } nav { gap:14px; } nav .nav-link:not(.nav-cta) { display:none; } .hero { grid-template-columns:1fr; padding-top:54px; } .hero-visual { min-height:390px; margin-top:-5px; } .network-art { width:112%; } .label-top { top:26px; right:4%; } .label-bottom { bottom:32px; left:2%; } .signal-row { grid-template-columns:1fr; gap:15px; } .signal-row div { border-left:0; padding-left:0; } .services { padding:95px 0 100px; } .section-heading,.contact-panel { grid-template-columns:1fr; } .service-grid,.principle-grid { grid-template-columns:1fr; } .service-grid article { min-height:250px; } .principle-grid article,.principle-grid article:not(:first-child) { border-right:0; border-bottom:1px solid rgba(179,226,255,.18); padding:24px 0; min-height:0; } .principle-grid article:last-child { border-bottom:0; } .principle-grid h3 { margin-top:28px; } .contact-panel { padding:34px 24px; } footer { flex-direction:column; gap:10px; } }
-  @media (max-width:800px) { .global-feature { min-height:410px; margin-top:72px; background-position:58% center; } .global-feature::before { background:linear-gradient(90deg,rgba(3,20,48,.88),rgba(3,20,48,.28)); } .global-feature-content { padding:30px; } }
+  @media (max-width:800px) {
+    .hero-carousel { height:930px; }
+    .slide-strategy .hero { padding-top:45px; padding-bottom:120px; align-content:start; }
+    .slide-strategy .hero-visual { min-height:340px; }
+    .slide-strategy .hero-note { margin-top:34px; }
+    .slide-global-image { background-position:63% center; }
+    .slide-global-shade { background:linear-gradient(180deg,rgba(3,20,48,.94),rgba(3,20,48,.66) 48%,rgba(3,20,48,.08)); }
+    .slide-copy { width:100%; align-self:flex-start; padding:115px 22px 0; }
+    .slide-copy h2 { font-size:clamp(3.8rem,11vw,6rem); }
+    .slide-impact .slide-copy { width:100%; }
+    .slide-impact .slide-copy h2 { font-size:clamp(3.8rem,11vw,6rem); }
+    .slide-side-note { right:22px; bottom:124px; }
+    .impact-visual { width:100%; height:440px; right:0; top:385px; transform:scale(.85); }
+    .carousel-controls { padding:0 5px; gap:16px; }
+    .slide-tabs { gap:9px; }.slide-tab { width:auto; flex:1; font-size:.68rem; }.slide-tab span { margin-right:4px; }
+  }
+  @media (max-width:480px) {
+    .hero-carousel { height:880px; }
+    .slide-strategy h1 { font-size:clamp(3.15rem,12vw,4.3rem); }
+    .slide-strategy .hero-visual { min-height:290px; }
+    .slide-strategy .hero-note { margin-top:26px; }
+    .slide-copy { padding-top:95px; }.slide-copy h2 { font-size:clamp(3.1rem,12vw,4.3rem); }
+    .impact-visual { top:520px; transform:scale(.60); transform-origin:top center; }
+    .slide-side-note { display:none; }
+    .slide-arrows button { width:34px; height:34px; }
+    .carousel-controls { bottom:18px; }
+  }
+  @media (prefers-reduced-motion:reduce) { [data-slide-pause] { display:none; } }
 </style>
+<script>
+  const carousel = document.querySelector<HTMLElement>('[data-carousel]');
+
+  if (carousel) {
+    const slides = Array.from(carousel.querySelectorAll<HTMLElement>('[data-slide]'));
+    const tabs = Array.from(carousel.querySelectorAll<HTMLButtonElement>('[data-slide-to]'));
+    const pauseButton = carousel.querySelector<HTMLButtonElement>('[data-slide-pause]');
+    const previous = carousel.querySelector<HTMLButtonElement>('[data-slide-prev]');
+    const next = carousel.querySelector<HTMLButtonElement>('[data-slide-next]');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let activeIndex = 0;
+    let paused = false;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    const schedule = () => {
+      clearTimeout(timer);
+      const focusedSlide = slides.some((slide) => slide.contains(document.activeElement));
+      if (reducedMotion.matches || paused || document.hidden || focusedSlide) return;
+      timer = setTimeout(() => showSlide(activeIndex + 1), 7600);
+    };
+
+    const showSlide = (index: number) => {
+      activeIndex = (index + slides.length) % slides.length;
+      slides.forEach((slide, slideIndex) => {
+        const active = slideIndex === activeIndex;
+        slide.classList.toggle('is-active', active);
+        slide.setAttribute('aria-hidden', String(!active));
+        slide.toggleAttribute('inert', !active);
+      });
+      tabs.forEach((tab, tabIndex) => {
+        const active = tabIndex === activeIndex;
+        tab.classList.toggle('is-active', active);
+        tab.setAttribute('aria-pressed', String(active));
+      });
+      schedule();
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => showSlide(index));
+      tab.addEventListener('keydown', (event) => {
+        if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+        event.preventDefault();
+        const nextIndex = (index + (event.key === 'ArrowRight' ? 1 : -1) + slides.length) % slides.length;
+        showSlide(nextIndex);
+        tabs[nextIndex].focus();
+      });
+    });
+    pauseButton?.addEventListener('click', () => {
+      paused = !paused;
+      pauseButton.textContent = paused ? '▶' : 'Ⅱ';
+      pauseButton.setAttribute('aria-label', paused ? 'Play automatic slideshow' : 'Pause automatic slideshow');
+      pauseButton.setAttribute('aria-pressed', String(paused));
+      schedule();
+    });
+    previous?.addEventListener('click', () => showSlide(activeIndex - 1));
+    next?.addEventListener('click', () => showSlide(activeIndex + 1));
+    carousel.addEventListener('touchstart', (event) => {
+      touchStartX = event.changedTouches[0].screenX;
+      touchStartY = event.changedTouches[0].screenY;
+    }, { passive: true });
+    carousel.addEventListener('touchend', (event) => {
+      const deltaX = event.changedTouches[0].screenX - touchStartX;
+      const deltaY = event.changedTouches[0].screenY - touchStartY;
+      if (Math.abs(deltaX) > 55 && Math.abs(deltaX) > Math.abs(deltaY) * 1.4) showSlide(activeIndex + (deltaX < 0 ? 1 : -1));
+    }, { passive: true });
+    carousel.addEventListener('focusin', schedule);
+    carousel.addEventListener('focusout', () => setTimeout(schedule, 0));
+    document.addEventListener('visibilitychange', schedule);
+    reducedMotion.addEventListener('change', schedule);
+    schedule();
+  }
+</script>
