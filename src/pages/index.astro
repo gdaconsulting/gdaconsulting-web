@@ -1,9 +1,47 @@
 ---
 const bookingUrl = 'https://bookings.cloud.microsoft/bookwithme/user/f317fe5f70b546a1b75865480dfcd800@gdaconsulting.com.ar/meetingtype/GGlwXljY40a6tcsSyWHPyQ2?anonymous&ismsaljsauthenabled';
 const services = [
-  { number: '01', title: 'Legal technology', text: 'Improve matter intake, workflows and legal systems so teams can spend less time on friction and more time on meaningful work.' },
-  { number: '02', title: 'Data & BI', text: 'Connect operational data and turn it into clear reporting that helps leaders see performance, workload and what needs attention.' },
-  { number: '03', title: 'AI & automation', text: 'Find practical, responsible ways to automate repetitive work and bring AI into existing processes with purpose.' },
+  {
+    number: '01',
+    title: 'Legal technology',
+    text: 'Diagnose processes, improve platforms and connect systems—from solution selection through implementation and change.',
+    intro: 'Make legal work flow better by aligning processes, people and technology. GDA helps firms assess what is working, identify friction and turn the findings into a practical roadmap.',
+    offerings: [
+      'Process and workflow diagnostics, redesign and optimization.',
+      'PMS selection, enhancement and implementation support, including Elite and Aderant.',
+      'System integrations and data flows using APIs, BizTalk and other appropriate tools.',
+      'Migrations, firm mergers, acquisitions, carve-outs and business splits.',
+      'Deployment planning, change support and practical adoption.',
+      'For smaller firms, matters.cloud provides a right-sized practice management option; for more complex environments, GDA works across leading platforms such as Elite and Aderant.',
+    ],
+  },
+  {
+    number: '02',
+    title: 'Data & BI',
+    text: 'Clean, migrate and connect PMS data, then turn it into useful reporting, financial insight and alerts.',
+    intro: 'Reliable decisions start with reliable data. GDA helps legal organizations improve the quality and flow of financial and operational information across their systems.',
+    offerings: [
+      'Data migration, cleansing, reconciliation and quality improvement.',
+      'Data consolidation for firm or branch mergers—and separation for splits or carve-outs.',
+      'Experience working with leading legal PMS platforms, including Elite and Aderant.',
+      'Custom BI, reporting and dashboards using Power BI, BigHand BI and fit-for-purpose tools.',
+      'Financial KPIs, management reporting, workload visibility and actionable alerts.',
+      'Support through BI deployment, validation, adoption and ongoing refinement.',
+    ],
+  },
+  {
+    number: '03',
+    title: 'AI & automation',
+    text: 'Find practical AI opportunities, choose an approach that fits your firm and automate work responsibly.',
+    intro: 'AI is moving quickly, and the right approach depends on the work, the data and the firm’s requirements. GDA can help assess opportunities, compare options and shape a responsible path from pilot to adoption.',
+    offerings: [
+      'Use-case discovery and adoption planning for tools such as ChatGPT, Claude, Gemini and legal-focused AI platforms.',
+      'Evaluation of deployment approaches—from managed tools to private environments such as Azure-hosted models or open-weight models, where appropriate.',
+      'Workflow automation, including support for time-entry capture and tools that make recording work easier.',
+      'Custom development and integrations with PMS, APIs, BizTalk and other business systems.',
+      'Implementation and delivery scoped to the firm’s priorities, security requirements and technical environment.',
+    ],
+  },
 ];
 const principles = [
   { number: '01', title: 'Understand', text: 'Start with the people, processes, information and systems behind the challenge.' },
@@ -123,8 +161,15 @@ const principles = [
         </div>
       </section>
       <section class="services" id="services">
-        <div class="section-heading"><div><p class="eyebrow">Services</p><h2>Make work<br /><span>work better.</span></h2></div><p class="section-intro">GDA helps legal and professional services teams connect their processes, technology and information to make everyday work clearer and more effective.</p></div>
-        <div class="service-grid">{services.map((service) => <article><div class="service-top"><span>{service.number}</span><span class="arrow">↗</span></div><h3>{service.title}</h3><p>{service.text}</p><a href="mailto:info@gdaconsulting.com.ar">Explore the conversation <span>↗</span></a></article>)}</div>
+        <div class="section-heading"><div><p class="eyebrow">Services</p><h2>Make work<br /><span>work better.</span></h2></div><p class="section-intro">Technology and data services for law firms of every size—supporting in-house teams, client delivery and collaboration across the legal technology ecosystem.</p></div>
+        <div class="service-grid">{services.map((service, index) => <article><div class="service-top"><span>{service.number}</span><span class="arrow" aria-hidden="true">↗</span></div><h3>{service.title}</h3><p>{service.text}</p><button class="service-open" type="button" data-service-open={index} aria-haspopup="dialog">Explore this service <span aria-hidden="true">↗</span></button></article>)}</div>
+        {services.map((service, index) => <dialog class="service-dialog" data-service-dialog={index} aria-labelledby={`service-dialog-title-${index}`}>
+          <div class="dialog-heading"><p class="eyebrow">GDA Consulting · Service {service.number}</p><button class="dialog-close" type="button" data-service-close aria-label="Close details">×</button></div>
+          <h3 id={`service-dialog-title-${index}`}>{service.title}</h3>
+          <p class="dialog-intro">{service.intro}</p>
+          <ul>{service.offerings.map((offering) => <li>{offering}</li>)}</ul>
+          <a class="contact-booking" href={bookingUrl} target="_blank" rel="noreferrer">Discuss your needs <span>↗</span></a>
+        </dialog>)}
       </section>
       <section class="approach" id="approach">
         <div class="section-heading approach-heading"><div><p class="eyebrow">How we work</p><h2>From the real<br /><span>problem to progress.</span></h2></div><p class="section-intro">We work alongside your team, connecting strategic choices with practical delivery and the adoption needed to make change last.</p></div>
@@ -187,6 +232,9 @@ const principles = [
   .slide-arrows { display:flex; gap:10px; }.slide-arrows button { width:40px; height:40px; border-radius:50%; border:1px solid rgba(186,232,255,.55); background:rgba(9,46,91,.55); color:#effaff; font-size:1.15rem; cursor:pointer; transition:background .2s,transform .2s; }.slide-arrows button:hover { background:#1572bb; transform:translateY(-2px); }.playback-icon { display:block; width:18px; height:18px; margin:auto; fill:currentColor; }.play-shape,[data-slide-pause][aria-pressed="true"] .pause-shape { display:none; }[data-slide-pause][aria-pressed="true"] .play-shape { display:block; }
   .carousel-controls button:focus-visible { outline:2px solid #91fff1; outline-offset:4px; }
   .services,.approach { padding:130px 0 120px; } .approach { padding-top:0; } .section-heading { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:end; margin-bottom:58px; } .approach-heading { margin-bottom:44px; } h2 { font-size:clamp(3rem,5.9vw,5.8rem); line-height:.9; letter-spacing:-.08em; margin:0; } .section-intro { color:#9fb6ce; line-height:1.65; max-width:420px; margin:0 0 5px; } .service-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; } .service-grid article { min-height:310px; padding:24px; border:1px solid rgba(179,226,255,.18); border-radius:14px; background:linear-gradient(145deg,rgba(75,180,255,.12),rgba(255,255,255,.025)); transition:transform .3s,border-color .3s,background .3s; } .service-grid article:hover { transform:translateY(-8px); border-color:rgba(104,233,238,.75); background:linear-gradient(145deg,rgba(75,180,255,.2),rgba(255,255,255,.04)); } .service-top { display:flex; justify-content:space-between; color:#6ddaf9; font-size:.75rem; } h3 { font-size:1.6rem; line-height:1.05; letter-spacing:-.05em; margin:72px 0 16px; max-width:250px; } .service-grid p,.principle-grid p { color:#a1b8cf; line-height:1.6; font-size:.88rem; max-width:285px; } .service-grid article a { display:inline-block; color:#dcecf8; text-decoration:none; font-size:.72rem; letter-spacing:.04em; margin-top:18px; }
+  .service-open { display:inline-flex; align-items:center; gap:7px; margin-top:18px; padding:0; border:0; background:none; color:#dcecf8; font:inherit; font-size:.72rem; letter-spacing:.04em; cursor:pointer; } .service-open span { color:#6de8e2; transition:transform .2s; } .service-open:hover span { transform:translate(3px,-3px); } .service-open:focus-visible,.dialog-close:focus-visible { outline:2px solid #91fff1; outline-offset:4px; }
+  .service-dialog { width:min(680px,calc(100% - 32px)); max-height:min(82vh,780px); padding:32px; border:1px solid rgba(116,224,255,.45); border-radius:16px; background:linear-gradient(145deg,#0c2d56,#071a35 75%); color:#f4f9ff; box-shadow:0 28px 100px rgba(0,0,0,.58); } .service-dialog::backdrop { background:rgba(2,10,25,.76); backdrop-filter:blur(7px); } .dialog-heading { display:flex; justify-content:space-between; align-items:center; gap:18px; } .dialog-heading .eyebrow { margin:0; } .dialog-close { width:38px; height:38px; flex:0 0 38px; border:1px solid rgba(179,226,255,.3); border-radius:50%; background:rgba(255,255,255,.04); color:#eaf7ff; font-size:1.45rem; cursor:pointer; } .service-dialog h3 { margin:30px 0 15px; max-width:none; font-size:clamp(2rem,5vw,3.2rem); } .dialog-intro { color:#c1d5e8; line-height:1.65; margin:0 0 22px; } .service-dialog ul { display:grid; gap:12px; margin:0 0 26px; padding:0; list-style:none; } .service-dialog li { position:relative; padding-left:22px; color:#b5cbe0; line-height:1.55; } .service-dialog li::before { content:'↗'; position:absolute; left:0; color:#6de8e2; } .service-dialog .contact-booking { text-decoration:none; }
+  @media (max-width:600px) { .service-dialog { padding:24px 20px; } }
   .about { padding:110px 0 125px; border-top:1px solid rgba(179,226,255,.16); display:grid; grid-template-columns:1.35fr .65fr; gap:90px; align-items:center; } .about-copy h2 { margin:0 0 30px; } .about-copy > p:not(.eyebrow) { color:#b6c9dd; line-height:1.7; max-width:650px; } .about-focus { display:grid; border-top:1px solid rgba(179,226,255,.24); } .about-focus span { padding:18px 0; border-bottom:1px solid rgba(179,226,255,.2); color:#d8e9f8; font-size:.9rem; } .about-focus span::before { content:'↗'; color:#6de8e2; margin-right:14px; }
   .principle-grid { display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgba(179,226,255,.18); border-bottom:1px solid rgba(179,226,255,.18); } .principle-grid article { min-height:230px; padding:25px 25px 28px 0; border-right:1px solid rgba(179,226,255,.18); } .principle-grid article:not(:first-child) { padding-left:25px; } .principle-grid article:last-child { border-right:0; } .principle-number { color:#69dff5; font-size:.7rem; } .principle-grid h3 { margin:55px 0 15px; font-size:1.45rem; }
   .contact-panel { border:1px solid rgba(91,218,238,.42); border-radius:16px; padding:56px; display:grid; grid-template-columns:1fr 1fr; gap:30px; background:radial-gradient(circle at 82% 15%,rgba(26,153,255,.2),transparent 48%),linear-gradient(145deg,rgba(77,170,255,.1),rgba(255,255,255,.025)); } .contact-details { display:flex; flex-direction:column; justify-content:center; gap:13px; } .contact-details p { color:#b3c9dd; line-height:1.5; margin:0 0 9px; max-width:330px; } .contact-details a { color:#dcecf8; text-decoration:none; font-size:.94rem; } .contact-email { color:#7ce7f0 !important; } .contact-booking { display:inline-flex; align-self:flex-start; align-items:center; border-radius:7px; padding:13px 17px; background:#f4fbff; color:#071a35 !important; font-weight:700; } footer { display:flex; justify-content:space-between; color:#7894b2; font-size:.7rem; padding-top:25px; padding-bottom:30px; }
@@ -228,6 +276,17 @@ const principles = [
   @media (prefers-reduced-motion:reduce) { [data-slide-pause] { display:none; } }
 </style>
 <script>
+  const serviceOpenButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-service-open]'));
+  serviceOpenButtons.forEach((button) => {
+    const dialog = document.querySelector<HTMLDialogElement>(`[data-service-dialog="${button.dataset.serviceOpen}"]`);
+    if (!dialog) return;
+    button.addEventListener('click', () => dialog.showModal());
+    dialog.querySelector<HTMLButtonElement>('[data-service-close]')?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => {
+      if (event.target === dialog) dialog.close();
+    });
+  });
+
   const carousel = document.querySelector<HTMLElement>('[data-carousel]');
 
   if (carousel) {
