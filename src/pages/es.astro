@@ -202,7 +202,8 @@ const bookingUrl = 'https://bookings.cloud.microsoft/bookwithme/user/f317fe5f70b
 </style>
 <script>
   document.querySelectorAll<HTMLButtonElement>('[data-service-open]').forEach((button) => {
-    const dialog = document.querySelector<HTMLDialogElement>(\`[data-service-dialog="\${button.dataset.serviceOpen}"]\`);
+    const dialogSelector = '[data-service-dialog="' + button.dataset.serviceOpen + '"]';
+    const dialog = document.querySelector<HTMLDialogElement>(dialogSelector);
     if (!dialog) return;
     button.addEventListener('click', () => dialog.showModal());
     dialog.querySelector<HTMLButtonElement>('[data-service-close]')?.addEventListener('click', () => dialog.close());
