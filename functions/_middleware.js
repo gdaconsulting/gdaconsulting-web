@@ -21,7 +21,7 @@ export async function onRequest(context) {
 
   if (url.pathname === "/") {
     const cookie = request.headers.get("Cookie") || "";
-    const languagePreference = cookie.match(/(?:^|;\\s*)gda_language=(en|es)(?:;|$)/)?.[1];
+    const languagePreference = cookie.match(/(?:^|;\s*)gda_language=(en|es)(?:;|$)/)?.[1];
     if (languagePreference) return context.next();
 
     const country = request.cf?.country || request.headers.get("CF-IPCountry");
