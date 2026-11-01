@@ -78,7 +78,7 @@ const principles = [
           </svg>
         </span><span>GDA<span class="muted"> Consulting</span></span>
       </a>
-      <nav aria-label="Primary"><a class="nav-link" href="#services">Services</a><a class="nav-link" href="#approach">How we work</a><a class="nav-link" href="#about">About GDA</a><a class="nav-link language-switch" href="/?lang=es" lang="es" hreflang="es" aria-label="Ver sitio en español">ES</a><a class="nav-link nav-cta" href={bookingUrl} target="_blank" rel="noreferrer">Book a Teams call <span>↗</span></a></nav>
+      <nav aria-label="Primary"><a class="nav-link" href="#services">Services</a><a class="nav-link" href="#approach">How we work</a><a class="nav-link" href="#about">About GDA</a><a class="nav-link nav-cta" href={bookingUrl} target="_blank" rel="noreferrer">Book a Teams call <span>↗</span></a><a class="nav-link language-switch" href="/?lang=es" lang="es-AR" hreflang="es-AR" aria-label="View site in Spanish for Argentina">🇦🇷 Español</a></nav>
     </header>
     <main>
       <section class="hero-carousel" aria-label="GDA Consulting highlights" data-carousel>
@@ -277,7 +277,7 @@ const principles = [
     .carousel-controls { bottom:18px; }
   }
   @media (prefers-reduced-motion:reduce) { [data-slide-pause] { display:none; } }
-</style>
+  .language-switch { display:inline-flex; align-items:center; gap:6px; white-space:nowrap; color:#e2f6ff; font-weight:700; }\n</style>
 <script>
   const serviceOpenButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-service-open]'));
   serviceOpenButtons.forEach((button) => {
